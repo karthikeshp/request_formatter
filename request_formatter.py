@@ -18,3 +18,10 @@ def json_formatter():
             'idaxml': idaxml, 'tm_qs': tm_qs})
     return render_template('get_xmls.html')
 
+if __name__ == "__main__":
+    kwargs = {}
+    for arg in sys.argv:
+        if '=' in arg:
+            k, v = arg.split('=')
+            kwargs[k] = v
+    app.run(**kwargs)
